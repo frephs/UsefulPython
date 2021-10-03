@@ -1,7 +1,6 @@
 import os
-
-
 def getDirs():
+    """Gets dir names in the specified or current path"""
     try:
         path = str(sys.argv[1])
     except Exception as e:
@@ -11,6 +10,7 @@ def getDirs():
     return path, dirs
 
 def writeFile(path, dirs):
+    """Writes the exercises down to a file"""
     output = open("output2.md", "w")
     output.flush()
     cpInfo = """```bash\n wsl gcc main.c -ansi -Wall -W -pedantic -std=c89\n``` \n"""
@@ -21,6 +21,7 @@ def writeFile(path, dirs):
     output.close()
 
 def writeExercise(dir, output):
+    """ Writes down every main.c file for each folder present in the specified or current path"""
     try:
         code, coms = extractCode(dir+"/main.c");
     except Exception as e:
@@ -37,6 +38,7 @@ def writeExercise(dir, output):
 
 
 def extractCode(file):
+    """Extracts the code from each specific main.c"""
     try:
         f = open(file,"r")
         lines = f.readlines()
@@ -48,6 +50,7 @@ def extractCode(file):
 
 
 def removeComments(lines):
+    """removes the comments present between the /* */ characters"""
     allcode =""; coms= [];
     for line in lines:
         allcode += str(line)
@@ -66,5 +69,6 @@ def removeComments(lines):
     return res, coms;
 
 if __name__ == '__main__':
+    """3, 2, 1: GO!"""
     path, dirs = getDirs()
     writeFile(path, dirs)
