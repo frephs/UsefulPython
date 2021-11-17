@@ -66,7 +66,15 @@ def getAdvice(ed,gg, mm, yy, threshold):
 def returnHours(elem):
     return elem[1][2]
 
-getAdvice("MIA", 18, 11, 2021, 3)
+def output():
+    from datetime import date
+    t = date.today()
+    print("\n--------\nTODAY\n---------")
+    getAdvice("MIA", t.day, t.month, t.year, 3)
+    print("\n--------\nTOMORROW\n---------")
+    getAdvice("MIA", t.day+1, t.month, t.year, 3)
+
+output()
 
 #FOR REFERENCE
 edifici = [
