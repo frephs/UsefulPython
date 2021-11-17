@@ -1,4 +1,4 @@
-# import module
+ # import module
 import os
 from pdf2image import convert_from_path
 import numpy as np
@@ -20,6 +20,7 @@ def getPDFs():
 def pdfToImg():
     list_pdf = getPDFs()
     for pdf in list_pdf:
+        print(pdf.shape)
         images = convert_from_path(pdf)
         for i in range(len(images)):
             images[i].save('prov/'+str(pdf)+'page'+ str(i) +'.png', 'PNG')
