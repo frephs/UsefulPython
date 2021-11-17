@@ -60,7 +60,11 @@ def getAdvice(ed,gg, mm, yy, threshold):
                 wasFree = 0
         if len(advice)!=0 :
             advices.append(advice);
+        advices.sort(key=returnHours, reverse=True)
     for advice in advices:
         print(advice)
 
-getAdvice("MIA", 18, 11, 2021, 4)
+def returnHours(elem):
+    return elem[1][2]
+
+getAdvice("MIA", 18, 11, 2021, 3)
