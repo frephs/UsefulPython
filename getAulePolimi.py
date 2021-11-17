@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def getUrl(ed,gg, mm, yy):
-    print("https://www7.ceda.polimi.it/spazi/spazi/controller/OccupazioniGiornoEsatto.do?csic="+str(ed)+"&categoria=tutte&tipologia=tutte&giorno_day="+str(gg)+"&giorno_month="+str(mm)+"&giorno_year="+str(yy)+"&jaf_giorno_date_format=dd%2FMM%2Fyyyy&evn_visualizza=")
-    return "https://www7.ceda.polimi.it/spazi/spazi/controller/OccupazioniGiornoEsatto.do?csic=MIA&categoria=tutte&tipologia=tutte&giorno_day="+str(gg)+"&giorno_month="+str(mm)+"&giorno_year="+str(yy)+"&jaf_giorno_date_format=dd%2FMM%2Fyyyy&evn_visualizza="
+    return "https://www7.ceda.polimi.it/spazi/spazi/controller/OccupazioniGiornoEsatto.do?csic="+str(ed)+"&categoria=tutte&tipologia=tutte&giorno_day="+str(gg)+"&giorno_month="+str(mm)+"&giorno_year="+str(yy)+"&jaf_giorno_date_format=dd%2FMM%2Fyyyy&evn_visualizza="
 
 def getMatrixAule(ed,gg, mm, yy):
     r = requests.get(getUrl(ed, gg, mm, yy))
@@ -68,3 +67,36 @@ def returnHours(elem):
     return elem[1][2]
 
 getAdvice("MIA", 18, 11, 2021, 3)
+
+#FOR REFERENCE
+edifici = [
+["COE", "Como"],
+["COE04", "Como - Via Anzani"],
+["COE02", "Como - Via Castelnuovo"],
+["COE03", "Como - Via Valleggio"],
+["COE08", "Como - Via Zezio"],
+["CRG", "Cremona"],
+["CRG01", "Cremona - Via Sesto"],
+["LCF", "Lecco"],
+["LCF04", "Lecco - Via Ghislanzoni"],
+["MNI", "Mantova"],
+["MNI01", "Mantova - Via Scarsellini 15"],
+["MNI02", "Mantova - Via Scarsellini 2"],
+["MIB", "Milano Bovisa"],
+["MIB02", "Milano Bovisa - Via Durando"],
+["MIB01", "Milano Bovisa - Via La Masa"],
+["MIA", "Milano Città Studi"],
+["MIA11", "Milano Città Studi - Piazza Leonardo da Vinci 26"],
+["MIA01", "Milano Città Studi - Piazza Leonardo da Vinci 32"],
+["MIA03", "Milano Città Studi - Via Bassini"],
+["MIA02", "Milano Città Studi - Via Bonardi"],
+["MIA06", "Milano Città Studi - Via Colombo 40"],
+["MIA07", "Milano Città Studi - Via Colombo 81"],
+["MIA14", "Milano Città Studi - Via Golgi 20"],
+["MIA04", "Milano Città Studi - Via Golgi 40"],
+["MIA05", "Milano Città Studi - Via Mancinelli"],
+["MIA15", "Milano Città Studi - Via Pascoli 70"],
+["MIA09", "Milano Città Studi - Viale Romagna"],
+["PCL", "Piacenza"],
+["PCL04", "Piacenza - Via Scalabrini 113"],
+["PCL01", "Piacenza - Via Scalabrini 76"]]
