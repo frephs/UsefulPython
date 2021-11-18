@@ -49,7 +49,7 @@ def getAdvice(ed,gg, mm, yy, threshold):
     #Checks whether a room is free for at least "threshold" hours
     def check(hStart, hFin, threshold, advice):
         if hFin-hStart >= threshold:
-                    advice.append([str(int(hStart))+':'+str(int(hStart*60%60)), str(int(hFin))+':'+f"{int(hFin*60%60):02}", hFin-hStart])
+                    advice.append([str(int(hStart))+':'+f"{int(hFin*60%60):02}", str(int(hFin))+':'+f"{int(hFin*60%60):02}", hFin-hStart])
 
     #Let's get counting
     matrix = getMatrixAule(ed,gg, mm, yy)
